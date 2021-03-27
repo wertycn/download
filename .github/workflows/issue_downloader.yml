@@ -20,5 +20,8 @@ jobs:
     steps:
       - run: |
           env
-          echo "Comment on issue #${{ github.event.issue.name }}"
-          echo "Comment on issue #${{ github.event.issue }}"
+          echo "Comment on issue title is #${{ github.event.issue.title }}"
+          echo "Comment on issue number is #${{ github.event.issue.number }}"
+          echo "Comment on issue url is #${{ github.event.issue.url }}"
+          echo "Comment on issue id is #${{ github.event.issue.id }}"
+          echo "Comment on issue user is #${{ github.event.issue.user.login }}"
