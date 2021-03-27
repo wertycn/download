@@ -24,4 +24,4 @@ jobs:
           echo "Comment on issue number is #${{ github.event.issue.number }}"
           echo "Comment on issue url is #${{ github.event.issue.url }}"
           echo "Comment on issue id is #${{ github.event.issue.id }}"
-          echo "Comment on issue user is #${{ github.event.issue.comment.body }}"
+          echo "Comment on commer body is #${{ github.event.comment.body }}"
