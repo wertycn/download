@@ -7,7 +7,7 @@ on:
 jobs:
   issue_commented:
     # This job only runs for issue comments
-    name: Issue comment
+    name: Issue Downloader
     if: ${{ github.event.issue.id == 842467443 &&  github.event.comment.user.login == 'wertycn' }}
     runs-on: ubuntu-latest
     steps:
@@ -15,6 +15,7 @@ jobs:
         uses: actions/checkout@v2
       - name: 执行下载  
         run: |
+          ls
           echo "download url is ${{ github.event.comment.body }}"
           mkdir downloader
           cd downloader
