@@ -10,9 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          env
           echo "Comment on issue title is #${{ github.event.issue.title }}"
           echo "Comment on issue number is #${{ github.event.issue.number }}"
           echo "Comment on issue url is #${{ github.event.issue.url }}"
           echo "Comment on issue id is #${{ github.event.issue.id }}"
-          echo "Comment on commer body is #${{ github.event.comment.body }}"
+          echo "download url is ${{ github.event.comment.body }}"
+          mkdir downloader
+          cd downloader
+          wget ${{ github.event.comment.body }}
+          FILE_NAME=`ls`
+          ./bin/htool-cli cos --method upload --key downloader/${FILE_NAME} --path ./${FILE_NAME} --sk ${{ secrets.TENCENT_COS_SK }} --ak  ${{ secrets.TENCENT_COS_AK }} --url ${{ secrets.TENCENT_COS_URL }}
+          echo "下载路径： /downloader/${FILE_NAME}"
