@@ -21,6 +21,6 @@ jobs:
           cd downloader
           wget ${{ github.event.comment.body }}
           FILE_NAME=`ls`
-          chmod 765 -R ./bin/
-          ./bin/htool-cli cos --method upload --key downloader/${FILE_NAME} --path ./${FILE_NAME} --sk ${{ secrets.TENCENT_COS_SK }} --ak  ${{ secrets.TENCENT_COS_AK }} --url ${{ secrets.TENCENT_COS_URL }}
+          chmod 765 -R ../bin/
+          ../bin/htool-cli cos --method upload --key downloader/${FILE_NAME} --path ./${FILE_NAME} --sk ${{ secrets.TENCENT_COS_SK }} --ak  ${{ secrets.TENCENT_COS_AK }} --url ${{ secrets.TENCENT_COS_URL }}
           echo "result path is /downloader/${FILE_NAME}"
